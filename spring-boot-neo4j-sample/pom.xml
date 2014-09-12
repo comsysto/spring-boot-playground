@@ -9,7 +9,7 @@
         <dependency>
             <groupId>com.comsysto</groupId>
             <artifactId>spring-boot-starter-neo4j</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.1.0-SNAPSHOT</version>
         </dependency>
 
 	</dependencies>
