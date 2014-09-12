@@ -1,32 +1,15 @@
 package com.comsysto.boot.neo4j.data;
 
-import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
-import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.neo4j.config.EnableNeo4jRepositories;
-import org.springframework.data.neo4j.config.Neo4jConfiguration;
 import org.springframework.data.neo4j.core.GraphDatabase;
 
 import javax.annotation.PostConstruct;
 
 @Configuration
-@EnableNeo4jRepositories (basePackages = "com.comsysto.boot.neo4j")
-public class CustomConfiguration extends Neo4jConfiguration
+public class Neo4jRunner
 {
-
-    public CustomConfiguration() {
-        setBasePackage("com.comsysto.boot.neo4j");
-    }
-
-    @Bean
-    GraphDatabaseService graphDatabaseService() {
-        return new GraphDatabaseFactory().newEmbeddedDatabase("accessingdataneo4j.db");
-    }
-
     @Autowired
     PersonRepository personRepository;
 
@@ -77,11 +60,4 @@ public class CustomConfiguration extends Neo4jConfiguration
             tx.close();
         }
     }
-
-    public static void main(String[] args) throws Exception {
-
-
-        SpringApplication.run(CustomConfiguration.class, args);
-    }
-
 }

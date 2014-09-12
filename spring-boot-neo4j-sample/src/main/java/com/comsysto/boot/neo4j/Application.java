@@ -10,10 +10,10 @@ import java.io.File;
 import java.io.IOException;
 
 @Configuration
-@ComponentScan
 @EnableAutoConfiguration
-public class Application {
-
+@ComponentScan
+public class Application
+{
     public static void main(String[] args) throws IOException
     {
         FileUtils.deleteRecursively(new File("accessingdataneo4j.db"));
