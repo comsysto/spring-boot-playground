@@ -16,7 +16,7 @@ public class Application
 {
     public static void main(String[] args) throws IOException
     {
-        FileUtils.deleteRecursively(new File("accessingdataneo4j.db"));
+        FileUtils.deleteRecursively(new File("neo4j.db"));
         SpringApplication.run(Application.class, args);
     }
 }
