@@ -1,3 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.comsysto.configuration.Neo4jPrototypeAutoConfiguration,\
-com.comsysto.configuration.Neo4jAutoConfiguration
+com.comsysto.configuration.Neo4jAutoConfiguration,\
+com.comsysto.configuration.Neo4jDataAutoConfiguration,\
+com.comsysto.configuration.spring.data.Neo4jRepositoriesAutoConfiguration
+
