@@ -17,18 +17,23 @@ public class Neo4jRunner
     GraphDatabase graphDatabase;
 
     @PostConstruct
-    public void run() throws Exception {
+    public void run() throws Exception
+    {
+        personRepository.deleteAll();
+
         Person greg = new Person("Greg");
         Person roy = new Person("Roy");
         Person craig = new Person("Craig");
 
         System.out.println("Before linking up with Neo4j...");
-        for (Person person : new Person[]{greg, roy, craig}) {
+        for (Person person : new Person[]{greg, roy, craig})
+        {
             System.out.println(person);
         }
 
         Transaction tx = graphDatabase.beginTx();
-        try {
+        try
+        {
             personRepository.save(greg);
             personRepository.save(roy);
             personRepository.save(craig);
@@ -46,17 +51,20 @@ public class Neo4jRunner
             // We already know craig works with roy and greg
 
             System.out.println("Lookup each person by name...");
-            for (String name: new String[]{greg.name, roy.name, craig.name}) {
+            for (String name: new String[]{greg.name, roy.name, craig.name})
+            {
                 System.out.println(personRepository.findByName(name));
             }
 
             System.out.println("Looking up who works with Greg...");
-            for (Person person : personRepository.findByTeammatesName("Greg")) {
+            for (Person person : personRepository.findByTeammatesName("Greg"))
+            {
                 System.out.println(person.name + " works with Greg.");
             }
 
             tx.success();
-        } finally {
+        }
+        finally {
             tx.close();
         }
     }
