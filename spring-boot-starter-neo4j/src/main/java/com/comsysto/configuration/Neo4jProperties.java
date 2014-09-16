@@ -5,15 +5,51 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties (prefix = "spring.data.neo4j")
 public class Neo4jProperties
 {
-    private String databaseName = "test.db";
+    private String localPath = "test.db";
 
-    public String getDatabaseName()
+    private String uri;
+
+    private String username;
+
+    private String password;
+
+    public String getUri()
     {
-        return databaseName;
+        return uri;
     }
 
-    public void setDatabaseName(String databaseName)
+    public String getLocalPath()
     {
-        this.databaseName = databaseName;
+        return localPath;
+    }
+
+    public void setLocalPath(String localPath)
+    {
+        this.localPath = localPath;
+    }
+
+    public void setUri(String uri)
+    {
+        this.uri = uri;
+    }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 }
